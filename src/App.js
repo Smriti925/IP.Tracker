@@ -47,14 +47,14 @@ function App() {
 
   return (
     <div>
-      <div className="bg-green-900 text-white flex justify-center items-center flex-col shadow-lg font-pop">
+      <div className="bg-green-900 text-white flex justify-center items-start flex-col shadow-lg font-pop bg-no-repeat bg-right bg-[url('../public/earth.png')]">
         <h1 className="text-2xl p-4 sm:p-8 font-bold">IP Address Tracker</h1>
         <div className="text-black relative">
           <input
             type="text"
             value={inputHandler}
             placeholder="Search for an IP address"
-            className=" w-72 sm:w-96 h-8 mb-4 sm:mb-8 rounded-lg p-2 "
+            className=" w-72 sm:w-96 h-8 mb-4 sm:mb-8 rounded-lg p-2 ml-4 sm:ml-8 "
             onChange={(e) => setinputHandler(e.target.value)}
           />
           <button onClick={submitHandler} className="bg-gray-200">
@@ -64,7 +64,7 @@ function App() {
             />
           </button>
         </div>
-        <div className="z-10">
+        <div className="z-10 ml-4 sm:ml-8">
           <div className=" grid grid-cols-2 sm:grid-cols-4  w-[70vw] text-md text-black gap-2">
             <div className="p-2 bg-red-500 rounded-lg transform transition duration-100 hover:scale-105">
               <div className="font-bold text-md flex justify-center ">
@@ -104,6 +104,7 @@ function App() {
           }}
           center={[long, lat]}
           zoom={[10]}
+          pitch={[50]}
         >
           <Marker coordinates={[long, lat]} offsetLeft={-20} offsetTop={-10}>
             <p className="cursor-pointer animate-bounce">
