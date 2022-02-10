@@ -100,6 +100,7 @@ function App() {
           containerStyle={{
             height: "80vh",
             width: "100vw",
+            container: "map",
           }}
           center={[long, lat]}
           zoom={[10]}
