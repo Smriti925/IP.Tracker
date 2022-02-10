@@ -8,11 +8,13 @@ import ReactMapboxGl, {
   ZoomControl,
 } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+
 function App() {
   const [inputHandler, setinputHandler] = useState("");
   const [ip, setIP] = useState("");
   const [location, setLocation] = useState("");
-  const [iptime, setTime] = useState("");
+  const [country, setCountry] = useState("");
+  const [iptime, setIPTime] = useState("");
   const [isp, setISP] = useState("");
   const [lat, setLat] = useState("28.44923");
   const [long, setLong] = useState("77.04448");
@@ -35,7 +37,8 @@ function App() {
         console.log(res.data);
         setIP(res.data.ip);
         setLocation(res.data.location.city);
-        setTime(res.data.location.timezone);
+        setIPTime(res.data.location.timezone);
+        setCountry(res.data.location.country);
         setISP(res.data.isp);
         setLat(res.data.location.lat);
         setLong(res.data.location.lng);
@@ -44,7 +47,7 @@ function App() {
 
   return (
     <div>
-      <div className="bg-violet-900 text-white flex justify-center items-center flex-col shadow-lg font-pop">
+      <div className="bg-green-900 text-white flex justify-center items-center flex-col shadow-lg font-pop">
         <h1 className="text-2xl p-4 sm:p-8 font-bold">IP Address Tracker</h1>
         <div className="text-black relative">
           <input
@@ -64,24 +67,28 @@ function App() {
         <div className="z-10">
           <div className=" grid grid-cols-2 sm:grid-cols-4  w-[70vw] text-md text-black gap-2">
             <div className="p-2 bg-red-500 rounded-lg transform transition duration-100 hover:scale-105">
-              <div class="font-bold text-md flex justify-center ">
+              <div className="font-bold text-md flex justify-center ">
                 IP address
               </div>
-              <p class="text-sm flex justify-center">{ip}</p>
+              <p className="text-sm flex justify-center">{ip}</p>
             </div>
             <div className="p-2 bg-yellow-500 rounded-lg transform transition duration-100 hover:scale-105">
-              <div class="font-bold text-md flex justify-center">Location</div>
-              <p class="text-sm flex justify-center">{location}</p>
+              <div className="font-bold text-md flex justify-center">
+                Location
+              </div>
+              <p className="text-sm flex justify-center">
+                {location} {country}
+              </p>
             </div>
             <div className="p-2 bg-green-500 rounded-lg transform transition duration-100 hover:scale-105">
-              <div class="font-bold text-md flex justify-center ">
+              <div className="font-bold text-md flex justify-center ">
                 Time Zone
               </div>
-              <p class="text-sm flex justify-center">{iptime}</p>
+              <p className="text-sm flex justify-center">{iptime}</p>
             </div>
             <div className="p-2 bg-sky-500 rounded-lg transform transition duration-100 hover:scale-105">
-              <div class="font-bold text-md flex justify-center">ISP</div>
-              <p class="text-sm flex justify-center">{isp}</p>
+              <div className="font-bold text-md flex justify-center">ISP</div>
+              <p className="text-sm flex justify-center">{isp}</p>
             </div>
           </div>
         </div>
