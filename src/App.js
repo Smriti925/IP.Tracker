@@ -11,7 +11,7 @@ import {
 
 function App() {
   const [inputHandler, setinputHandler] = useState("");
-  const [ip, setIP] = useState("bla bla");
+  const [ip, setIP] = useState("");
   const [location, setLocation] = useState("");
   const [country, setCountry] = useState("");
   const [iptime, setIPTime] = useState("");
